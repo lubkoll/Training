@@ -20,6 +20,15 @@ install:
   ############################################################################
   - mkdir C:\projects\deps
   - cd C:\projects\deps
+
+  ############################################################################
+  # Install Ninja
+  ############################################################################
+  - set NINJA_URL="https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-win.zip"
+  - appveyor DownloadFile %NINJA_URL% -FileName ninja.zip
+  - 7z x ninja.zip -oC:\projects\deps\ninja > nul
+  - set PATH=C:\projects\deps\ninja;%PATH%
+  - ninja --version
   
     ############################################################################
   # Install a recent CMake
@@ -38,8 +47,8 @@ before_build:
 build_script:
   - mkdir build && cd build
   - mkdir array && mkdir forward_list && mkdir tuple && mkdir unordered_map
-  - cd array && cmake ../../array && make && ./array && cd ..
-  - cd forward_list && cmake ../../forward_list && make && ./forward_list && cd ..
-  - cd tuple && cmake ../../tuple && make && ./tuple && cd ..
-  - cd unordered_map && cmake ../../unordered_map && make && ./unordered_map && cd ..
+  - cd array && cmake -GNinja ../../array && make && ./array && cd ..
+  - cd forward_list && cmake -GNinja ../../forward_list && make && ./forward_list && cd ..
+  - cd tuple && cmake -GNinja ../../tuple && make && ./tuple && cd ..
+  - cd unordered_map && cmake -GNinja ../../unordered_map && make && ./unordered_map && cd ..
 
