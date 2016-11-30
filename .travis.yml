@@ -92,7 +92,7 @@ install:
 script:
   - cd $TRAVIS_BUILD_DIR
   - mkdir build && cd build
-  - mkdir array && mkdir forward_list && mkdir tuple && mkdir unordered_map && mkdir unordered_set && mkdir initializer_list && mkdir cstdint && mkdir type_traits
+  - mkdir array && mkdir forward_list && mkdir tuple && mkdir unordered_map && mkdir unordered_set && mkdir initializer_list && mkdir cstdint && mkdir type_traits && mkdir chrono
   - cd array && cmake ../../array && make && ./array && cd ..
   - cd forward_list && cmake ../../forward_list && make && ./forward_list && cd ..
   - cd tuple && cmake ../../tuple && make && ./tuple && cd ..
@@ -101,4 +101,5 @@ script:
   - cd initializer_list && cmake ../../initializer_list && make && ./initializer_list && cd ..
   - cd cstdint && cmake ../../cstdint && make && ./cstdint && cd ..
   - cd type_traits && cmake ../../type_traits && make && ./type_traits && cd ..
+  - cd chrono && cmake ../../chrono && make && ./chrono && cd ..
 
