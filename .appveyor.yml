@@ -1,0 +1,45 @@
+shallow_clone: true
+
+os:
+  - Visual Studio 2015
+
+build:
+  verbosity: detailed
+
+configuration:
+  - Release
+
+branches:
+  except:
+    - /pr\/.+/
+
+
+install:
+  ############################################################################
+  # All external dependencies are installed in C:\projects\deps
+  ############################################################################
+  - mkdir C:\projects\deps
+  - cd C:\projects\deps
+  
+    ############################################################################
+  # Install a recent CMake
+  ############################################################################
+  - set CMAKE_URL="https://cmake.org/files/v3.4/cmake-3.4.0-win32-x86.zip"
+  - appveyor DownloadFile %CMAKE_URL% -FileName cmake.zip
+  - 7z x cmake.zip -oC:\projects\deps\cmake > nul
+  - set PATH=C:\projects\deps\cmake\bin;%PATH%
+  - cmake --version
+
+
+before_build:
+  - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
+  - cd C:\projects\Training
+
+build_script:
+  - mkdir build && cd build
+  - mkdir array && mkdir forward_list && mkdir tuple && mkdir unordered_map
+  - cd array && cmake -DCMAKE_CXX_FLAGS="-fms-compatibility-version=19 -Wno-deprecated-declarations /EHsc /MTd" ../../array && make && ./array && cd ..
+  - cd forward_list && cmake -DCMAKE_CXX_FLAGS="-fms-compatibility-version=19 -Wno-deprecated-declarations /EHsc /MTd" ../../forward_list && make && ./forward_list && cd ..
+  - cd tuple && cmake -DCMAKE_CXX_FLAGS="-fms-compatibility-version=19 -Wno-deprecated-declarations /EHsc /MTd" ../../tuple && make && ./tuple && cd ..
+  - cd unordered_map && cmake -DCMAKE_CXX_FLAGS="-fms-compatibility-version=19 -Wno-deprecated-declarations /EHsc /MTd" ../../unordered_map && make && ./unordered_map && cd ..
+
