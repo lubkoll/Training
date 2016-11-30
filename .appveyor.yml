@@ -47,8 +47,8 @@ before_build:
 build_script:
   - mkdir build && cd build
   - mkdir array && mkdir forward_list && mkdir tuple && mkdir unordered_map
-  - cd array && cmake -GNinja ../../array && ninja && ./array && cd ..
-  - cd forward_list && cmake -GNinja ../../forward_list && ninja && ./forward_list && cd ..
-  - cd tuple && cmake -GNinja ../../tuple && ninja && ./tuple && cd ..
-  - cd unordered_map && cmake -GNinja ../../unordered_map && ninja && ./unordered_map && cd ..
+  - cd array && cmake -GNinja ../../array && ninja && array && cd ..
+  - cd forward_list && cmake -GNinja ../../forward_list && ninja && forward_list && cd ..
+  - cd tuple && cmake -GNinja ../../tuple && ninja && tuple && cd ..
+  - cd unordered_map && cmake -GNinja ../../unordered_map && ninja && unordered_map && cd ..
 
