@@ -38,8 +38,8 @@ before_build:
 build_script:
   - mkdir build && cd build
   - mkdir array && mkdir forward_list && mkdir tuple && mkdir unordered_map
-  - cd array && cmake -DCMAKE_CXX_FLAGS="-fms-compatibility-version=19 -Wno-deprecated-declarations /EHsc /MTd" ../../array && make && ./array && cd ..
-  - cd forward_list && cmake -DCMAKE_CXX_FLAGS="-fms-compatibility-version=19 -Wno-deprecated-declarations /EHsc /MTd" ../../forward_list && make && ./forward_list && cd ..
-  - cd tuple && cmake -DCMAKE_CXX_FLAGS="-fms-compatibility-version=19 -Wno-deprecated-declarations /EHsc /MTd" ../../tuple && make && ./tuple && cd ..
-  - cd unordered_map && cmake -DCMAKE_CXX_FLAGS="-fms-compatibility-version=19 -Wno-deprecated-declarations /EHsc /MTd" ../../unordered_map && make && ./unordered_map && cd ..
+  - cd array && cmake ../../array && make && ./array && cd ..
+  - cd forward_list && cmake ../../forward_list && make && ./forward_list && cd ..
+  - cd tuple && cmake ../../tuple && make && ./tuple && cd ..
+  - cd unordered_map && cmake ../../unordered_map && make && ./unordered_map && cd ..
 
