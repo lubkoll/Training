@@ -34,7 +34,7 @@ matrix:
 
     # GCC 6
     - os: linux
-      env: COMPILER=g++-6 GCOV=gcov-6
+      env: COMPILER=g++-6
       compiler: gcc
       
     # Clang 3.6
@@ -65,13 +65,7 @@ matrix:
     - os: osx
       osx_image: xcode8
      
-install:
-  ############################################################################
-  # All the dependencies are installed in ${TRAVIS_BUILD_DIR}/deps/
-  ############################################################################
-  - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
-  - mkdir -p ${DEPS_DIR} && cd ${DEPS_DIR}
-  
+install:  
   ############################################################################
   # Override compiler if needed
   ############################################################################
@@ -84,7 +78,7 @@ install:
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
       CMAKE_URL="http://www.cmake.org/files/v3.5/cmake-3.5.2-Linux-x86_64.tar.gz"
       mkdir cmake && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
-      export PATH=${DEPS_DIR}/cmake/bin:${PATH}
+      export PATH=${TRAVIS_BUILD_DIR}/cmake/bin:${PATH}
     else
       if ! brew ls --version cmake &>/dev/null; then brew install cmake; fi
     fi
@@ -92,14 +86,13 @@ install:
 script:
   - cd $TRAVIS_BUILD_DIR
   - mkdir build && cd build
-  - mkdir array && mkdir forward_list && mkdir tuple && mkdir unordered_map && mkdir unordered_set && mkdir initializer_list && mkdir cstdint && mkdir type_traits && mkdir chrono
-  - cd array && cmake ../../array && make && ./array && cd ..
-  - cd forward_list && cmake ../../forward_list && make && ./forward_list && cd ..
-  - cd tuple && cmake ../../tuple && make && ./tuple && cd ..
-  - cd unordered_map && cmake ../../unordered_map && make && ./unordered_map && cd ..
-  - cd unordered_set && cmake ../../unordered_set && make && ./unordered_set && cd ..
-  - cd initializer_list && cmake ../../initializer_list && make && ./initializer_list && cd ..
-  - cd cstdint && cmake ../../cstdint && make && ./cstdint && cd ..
-  - cd type_traits && cmake ../../type_traits && make && ./type_traits && cd ..
-  - cd chrono && cmake ../../chrono && make && ./chrono && cd ..
+  - mkdir array && cd array && cmake ../../array && make && ./array && cd ..
+  - mkdir tuple && cd tuple && cmake ../../tuple && make && ./tuple && cd ..
+  - mkdir chrono && cd chrono && cmake ../../chrono && make && ./chrono && cd ..
+  - mkdir cstdint && cd cstdint && cmake ../../cstdint && make && ./cstdint && cd ..
+  - mkdir type_traits && cd type_traits && cmake ../../type_traits && make && ./type_traits && cd ..
+  - mkdir forward_list && cd forward_list && cmake ../../forward_list && make && ./forward_list && cd ..
+  - mkdir unordered_map && cd unordered_map && cmake ../../unordered_map && make && ./unordered_map && cd ..
+  - mkdir unordered_set && cd unordered_set && cmake ../../unordered_set && make && ./unordered_set && cd ..
+  - mkdir initializer_list && cd initializer_list && cmake ../../initializer_list && make && ./initializer_list && cd ..
 
