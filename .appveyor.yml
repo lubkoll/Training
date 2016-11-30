@@ -46,7 +46,7 @@ before_build:
 
 build_script:
   - mkdir build && cd build
-  - mkdir array && mkdir forward_list && mkdir tuple && mkdir unordered_map && mkdir unordered_set && mkdir initializer_list && mkdir cstdint
+  - mkdir array && mkdir forward_list && mkdir tuple && mkdir unordered_map && mkdir unordered_set && mkdir initializer_list && mkdir cstdint && mkdir type_traits
   - cd array && cmake -GNinja ../../array && ninja && array && cd ..
   - cd forward_list && cmake -GNinja ../../forward_list && ninja && forward_list && cd ..
   - cd tuple && cmake -GNinja ../../tuple && ninja && tuple && cd ..
@@ -54,4 +54,5 @@ build_script:
   - cd unordered_set && cmake -GNinja ../../unordered_set && ninja && unordered_set && cd ..
   - cd initializer_list && cmake -GNinja ../../initializer_list && ninja && initializer_list && cd ..
   - cd cstdint && cmake -GNinja ../../cstdint && ninja && cstdint && cd ..
+  - cd type_traits && cmake -GNinja ../../type_traits && ninja && type_traits && cd ..
 

@@ -3,7 +3,7 @@
 #include <vector>
 
 
-int main(int argc, char *argv[])
+int main()
 {
     std::cout << std::boolalpha;
 

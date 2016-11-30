@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main(int argc, char *argv[])
+int main()
 {
     std::unordered_map<std::string, std::string> u = {
         {"RED","#FF0000"},

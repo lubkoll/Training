@@ -5,7 +5,7 @@
     std::cout << "size of "#T": " << sizeof(T) << std::endl;
 
 
-int main(int argc, char *argv[])
+int main()
 {
     PRINT(std::int8_t);
     PRINT(std::int16_t);
