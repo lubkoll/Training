@@ -5,8 +5,10 @@
 
 int main()
 {
+    // Print boolean values as 'true'/'false' instead of 1/0
     std::cout << std::boolalpha;
 
+    // Create std::initializer_list<char>
     auto list = { 'm', 'e', 'e' };
 
     auto is_initializer_list =
