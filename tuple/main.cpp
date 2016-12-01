@@ -63,7 +63,7 @@ int main()
         std::cout << "Value was inserted successfully\n";
 
 
-    std::tuple<int, std::string, float> t1(10, "Test", 3.14);
+    std::tuple<int, std::string, float> t1(10, "Test", 3.14f);
     int n = 7;
 
     // Concatenate tuples with std::tuple_cat
