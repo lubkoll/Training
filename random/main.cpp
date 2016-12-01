@@ -5,32 +5,33 @@
 #include <iostream>
 #include <random>
 
+// Generate uniformly distributed integer numbers in [low,high].
+// Each run of this program will generate the same sequence.
 int rand_int(int low, int high)
 {
+    // random number generation engine (seeded with default value)
     static std::minstd_rand engine{};
+    // random number distribution
     static std::uniform_int_distribution<int> distribution {};
     return distribution(engine,
                         std::uniform_int_distribution<int>::param_type{low, high});
 }
 
-int rand_int_2(int low, int high)
+// Generate uniformly distributed integer numbers in [low,high].
+// Each run of this program will (probably) generate a different sequence.
+int rand_int_seeded(int low, int high)
 {
     using clock = std::chrono::system_clock;
 
+    // seed random number engine with system time
     static auto seed = clock::from_time_t(std::time(nullptr)).time_since_epoch().count();
+    // random number generation engine
     static std::minstd_rand engine(seed);
+    // random number distribution
     static std::uniform_int_distribution<int> distribution {};
 
     return distribution(engine,
                         std::uniform_int_distribution<int>::param_type{low, high});
-}
-
-int rand_normal(double mean, double std_deviation)
-{
-    static std::default_random_engine engine {};
-    static std::normal_distribution<> distribution {};
-    return distribution(engine,
-                        std::normal_distribution<>::param_type(mean, std_deviation));
 }
 
 int main()
@@ -42,11 +43,13 @@ int main()
 
     std::cout << "uniform_int_distribution (seeded with current time)" << std::endl;
     for(auto i=0; i<10; ++i)
-        std::cout << rand_int_2(42,73) << std::endl;
+        std::cout << rand_int_seeded(42,73) << std::endl;
     std::cout << std::endl;
 
     std::cout << "normal_distribution (example of Stroustroup)" << std::endl;
+    // random number generation engine (seeded with default value)
     std::default_random_engine re;   // the default engine
+    // random number distribution
     std::normal_distribution<double> nd(31 /* mean */,8 /* sigma */);
 
     auto norm = std::bind(nd, re);

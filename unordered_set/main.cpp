@@ -24,13 +24,15 @@ namespace std
 }
 
 int main() {
-    // contains unique elements
+    // Create unordered set of (unique!) elements using
+    // std::initializer_list<Point> and Point's aggregate initialization
     std::unordered_set<Point> points = {
         {1, 42},
         {1, 73},
         {1, 42}
     };
 
+    // Range-based for loop to print points
     for (const auto& point : points) {
         std::cout << "(" << point.x << ", " << point.y << ")" << std::endl;
     }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <type_traits>
 
+// Macro to print some properties of T
 #define PRINT(T) \
     std::cout << #T << std::endl; \
     std::cout << "no-throw default-constructible : " << std::is_nothrow_default_constructible<T>::value << std::endl; \
@@ -36,7 +37,9 @@ struct Default{};
 
 int main()
 {
+    // Print boolean values as 'true'/'false' instead of 1/0
     std::cout << std::boolalpha;
+
     PRINT(NonCopyable);
     PRINT(NonMoveable);
     PRINT(Default);
