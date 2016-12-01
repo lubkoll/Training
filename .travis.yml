@@ -87,6 +87,7 @@ script:
   - cd $TRAVIS_BUILD_DIR
   - mkdir build && cd build
   - mkdir array && cd array && cmake ../../array && make && ./array && cd ..
+  - mkdir regex && cd regex && cmake ../../regex && make && ./regex && cd ..
   - mkdir tuple && cd tuple && cmake ../../tuple && make && ./tuple && cd ..
   - mkdir chrono && cd chrono && cmake ../../chrono && make && ./chrono && cd ..
   - mkdir cstdint && cd cstdint && cmake ../../cstdint && make && ./cstdint && cd ..

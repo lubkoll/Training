@@ -47,6 +47,7 @@ before_build:
 build_script:
   - mkdir build && cd build
   - mkdir array && cd array && cmake -GNinja ../../array && ninja && array && cd ..
+  - mkdir regex && cd regex && cmake -GNinja ../../regex && ninja && regex && cd ..
   - mkdir tuple && cd tuple && cmake -GNinja ../../tuple && ninja && tuple && cd ..
   - mkdir chrono && cd chrono && cmake -GNinja ../../chrono && ninja && chrono && cd ..
   - mkdir cstdint && cd cstdint && cmake -GNinja ../../cstdint && ninja && cstdint && cd ..
