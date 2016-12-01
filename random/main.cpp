@@ -18,7 +18,7 @@ int rand_int_2(int low, int high)
     using clock = std::chrono::system_clock;
 
     static auto seed = clock::from_time_t(std::time(nullptr)).time_since_epoch().count();
-    static std::minstd_rand engine {seed};
+    static std::minstd_rand engine(seed);
     static std::uniform_int_distribution<int> distribution {};
 
     return distribution(engine,
@@ -30,7 +30,7 @@ int rand_normal(double mean, double std_deviation)
     static std::default_random_engine engine {};
     static std::normal_distribution<> distribution {};
     return distribution(engine,
-                        std::normal_distribution<>::param_type{mean, std_deviation});
+                        std::normal_distribution<>::param_type(mean, std_deviation));
 }
 
 int main()
