@@ -6,8 +6,6 @@ namespace mem_fn
 {
     struct T
     {
-        explicit T(int val) : value(val) { }
-
         int get() const
         {
             return value;
