@@ -14,6 +14,11 @@ Containers:
  - \<unordered_map\>
  - \<unordered_set\>
  
+ Concurrency:
+ - \<atomic\>
+ - \<condition_variable\>
+ - \<future\>
+ 
  Other:
  - \<chrono\>
  - \<cstdint\>
