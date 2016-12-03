@@ -55,11 +55,13 @@ matrix:
     # OSX
     # Xcode 6.4
     - os: osx
-      osx_image: xcode6.4 NO_THREAD_LOCAL=true
+      env: NO_THREAD_LOCAL=true
+      osx_image: xcode6.4
       
     # Xcode 7.3
     - os: osx
-      osx_image: xcode7.3 NO_THREAD_LOCAL=true
+      env: NO_THREAD_LOCAL=true
+      osx_image: xcode7.3
       
     # Xcode 8
     - os: osx
