@@ -92,6 +92,7 @@ script:
   - mkdir chrono && cd chrono && cmake ../../chrono && make && ./chrono && cd ..
   - mkdir random && cd random && cmake ../../random && make && ./random && cd ..
   - mkdir cstdint && cd cstdint && cmake ../../cstdint && make && ./cstdint && cd ..
+  - mkdir functional && cd functional && cmake ../../functional && make && ./functional && cd ..
   - mkdir type_traits && cd type_traits && cmake ../../type_traits && make && ./type_traits && cd ..
   - mkdir forward_list && cd forward_list && cmake ../../forward_list && make && ./forward_list && cd ..
   - mkdir unordered_map && cd unordered_map && cmake ../../unordered_map && make && ./unordered_map && cd ..

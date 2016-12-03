@@ -52,6 +52,7 @@ build_script:
   - mkdir chrono && cd chrono && cmake -GNinja ../../chrono && ninja && chrono && cd ..
   - mkdir random && cd random && cmake -GNinja ../../random && ninja && random && cd ..
   - mkdir cstdint && cd cstdint && cmake -GNinja ../../cstdint && ninja && cstdint && cd ..
+  - mkdir functional && cd functional && cmake -GNinja ../../functional && ninja && functional && cd ..
   - mkdir type_traits && cd type_traits && cmake -GNinja ../../type_traits && ninja && type_traits && cd ..
   - mkdir forward_list && cd forward_list && cmake -GNinja ../../forward_list && ninja && forward_list && cd ..
   - mkdir unordered_map && cd unordered_map && cmake -GNinja ../../unordered_map && ninja && unordered_map && cd ..
