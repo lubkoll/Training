@@ -5,7 +5,7 @@
 
 Some short examples introducing C+11/14-features of the STL.
 
-Containers:
+### Containers:
  - \<array\>
  - \<forward_list\>
  - \<functional\>
@@ -14,12 +14,12 @@ Containers:
  - \<unordered_map\>
  - \<unordered_set\>
  
- Concurrency:
+### Concurrency:
  - \<atomic\>
  - \<condition_variable\>
  - \<future\>
  
- Other:
+### Other:
  - \<chrono\>
  - \<cstdint\>
  - \<random\>
