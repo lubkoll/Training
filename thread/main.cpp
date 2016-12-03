@@ -1,9 +1,8 @@
-#include <iostream>
+#include "atomic.hh"
+#include "launch_policy.hh"
 
-using namespace std;
-
-int main(int argc, char *argv[])
+int main()
 {
-    cout << "Hello World!" << endl;
-    return 0;
+    launch_policy::example();
+    atomic::example();
 }
