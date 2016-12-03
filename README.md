@@ -8,6 +8,7 @@ Some short examples introducing C+11/14-features of the STL.
 Containers:
  - \<array\>
  - \<forward_list\>
+ - \<functional\>
  - \<initializer_list\>
  - \<tuple\>
  - \<unordered_map\>
