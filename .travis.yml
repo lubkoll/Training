@@ -97,5 +97,6 @@ script:
   - mkdir forward_list && cd forward_list && cmake ../../forward_list && make && ./forward_list && cd ..
   - mkdir unordered_map && cd unordered_map && cmake ../../unordered_map && make && ./unordered_map && cd ..
   - mkdir unordered_set && cd unordered_set && cmake ../../unordered_set && make && ./unordered_set && cd ..
+  - mkdir concurrency-api && cd concurrency-api && cmake ../../concurrency-api && make && ./concurrency-api && cd ..
   - mkdir initializer_list && cd initializer_list && cmake ../../initializer_list && make && ./initializer_list && cd ..
 
