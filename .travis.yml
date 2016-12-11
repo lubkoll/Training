@@ -104,4 +104,7 @@ script:
         mkdir concurrency-api && cd concurrency-api && cmake ../../concurrency-api && make && ./concurrency-api && cd ..
     fi
   - mkdir initializer_list && cd initializer_list && cmake ../../initializer_list && make && ./initializer_list && cd ..
+  - mkdir lambdas && cd lambdas && cmake ../../lambdas && make && ./lambdas && cd ..
+  - mkdir variadic_template && cd variadic_template && cmake ../../variadic_template && make && ./variadic_template && cd ..
+  - mkdir alias_and_variable_template && cd alias_and_variable_template && cmake ../../alias_and_variable_template && make && ./alias_and_variable_template && cd ..
 
