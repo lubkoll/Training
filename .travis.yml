@@ -107,4 +107,5 @@ script:
   - mkdir lambdas && cd lambdas && cmake ../../lambdas && make && ./lambdas && cd ..
   - mkdir variadic_template && cd variadic_template && cmake ../../variadic_template && make && ./variadic_template && cd ..
   - mkdir alias_and_variable_template && cd alias_and_variable_template && cmake ../../alias_and_variable_template && make && ./alias-and-variable-template && cd ..
+  - mkdir keywords && cd keywords && cmake ../../keywords && make && ./keywords && cd ..
 
