@@ -12,6 +12,7 @@ namespace bind
 
     struct NonCopyable
     {
+        constexpr NonCopyable() noexcept = default;
         NonCopyable(const NonCopyable&) = delete;
         NonCopyable& operator=(const NonCopyable&) = delete;
 
