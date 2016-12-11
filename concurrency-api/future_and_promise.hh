@@ -16,7 +16,6 @@ namespace future_and_promise
 
         std::cout << "Notifying threads...\n";
         promise.set_value();
-        std::this_thread::sleep_for(100ms);
     }
 
 
@@ -85,8 +84,8 @@ namespace future_and_promise
     void example()
     {
         simple_future_example();
-        shared_future_example();
-        packaged_task_example();
+//        shared_future_example();
+//        packaged_task_example();
         // Note:
         // The last future referring to a shared state for a non-deferred task
         // launched via std::async blocks until the task completes!

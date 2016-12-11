@@ -55,7 +55,8 @@ int main()
     cout << endl;
 
     cout << "a is of same type as b                   : " << is_same< decltype(a), decltype(b) >::value << endl;
-    cout << "a is of same type as b without references: " << is_same< decltype(a), remove_reference_t<decltype(b)> >::value << endl;
+    cout << "a is of same type as b without references: " << is_same< decltype(a), remove_reference<decltype(b)>::type >::value << "\n\n";
+    cout << "a is of same type as b without references: " << is_same< decltype(a), remove_reference_t<decltype(b)> >::value << "\n\n";
 
     // and much more..., see
     // http://en.cppreference.com/w/cpp/header/type_traits
