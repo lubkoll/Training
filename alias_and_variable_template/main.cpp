@@ -1,3 +1,6 @@
+#include <iomanip>
+#include <iostream>
+#include <limits>
 #include <map>
 #include <string>
 
@@ -20,7 +23,7 @@ namespace cpp98
     template <class T>
     struct pi
     {
-        static const T value(3.1415926535897932385);
+        static const T value = 3.1415926535897932385;
     };
 }
 
@@ -40,7 +43,7 @@ namespace cpp11
     template <class T>
     struct pi
     {
-        static const T value(3.1415926535897932385);
+        static const T value = 3.1415926535897932385;
     };
 }
 
@@ -59,4 +62,13 @@ namespace cpp14
     // Get pi for different types.
     template<typename T>
     constexpr T pi = T(3.1415926535897932385);
+}
+
+
+int main()
+{
+    std::cout << std::setprecision(std::numeric_limits<double>::digits10 + 1);
+    std::cout << cpp14::pi<double> << std::endl;
+    std::cout << cpp14::pi<float> << std::endl;
+    std::cout << cpp14::pi<int> << std::endl;
 }
