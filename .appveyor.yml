@@ -55,6 +55,7 @@ build_script:
 #  - mkdir functional && cd functional && cmake -GNinja ../../functional && ninja && functional && cd ..
   - mkdir type_traits && cd type_traits && cmake -GNinja ../../type_traits && ninja && type_traits && cd ..
   - mkdir forward_list && cd forward_list && cmake -GNinja ../../forward_list && ninja && forward_list && cd ..
+  - mkdir begin_and_end && cd begin_and_end && cmake -GNinja ../../begin_and_end && ninja && begin_and_end && cd ..
   - mkdir unordered_map && cd unordered_map && cmake -GNinja ../../unordered_map && ninja && unordered_map && cd ..
   - mkdir unordered_set && cd unordered_set && cmake -GNinja ../../unordered_set && ninja && unordered_set && cd ..
   - mkdir concurrency-api && cd concurrency-api && cmake -GNinja ../../concurrency-api && ninja && concurrency-api && cd ..

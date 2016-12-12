@@ -97,6 +97,7 @@ script:
   - mkdir functional && cd functional && cmake ../../functional && make && ./functional && cd ..
   - mkdir type_traits && cd type_traits && cmake ../../type_traits && make && ./type_traits && cd ..
   - mkdir forward_list && cd forward_list && cmake ../../forward_list && make && ./forward_list && cd ..
+  - mkdir begin_and_end && cd begin_and_end && cmake ../../begin_and_end && make && ./begin_and_end && cd ..
   - mkdir unordered_map && cd unordered_map && cmake ../../unordered_map && make && ./unordered_map && cd ..
   - mkdir unordered_set && cd unordered_set && cmake ../../unordered_set && make && ./unordered_set && cd ..
   - |
