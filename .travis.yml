@@ -100,7 +100,7 @@ script:
   - mkdir begin_and_end && cd begin_and_end && cmake ../../begin_and_end && make && ./begin_and_end && cd ..
   - mkdir unordered_map && cd unordered_map && cmake ../../unordered_map && make && ./unordered_map && cd ..
   - mkdir unordered_set && cd unordered_set && cmake ../../unordered_set && make && ./unordered_set && cd ..
-  - mkdir move_semantics && cd move_semantics && cmake ../../move_semantics && make && ./move_semantics && cd ..
+  - mkdir move_semantics && cd move_semantics && cmake ../../move_semantics && make && ./move-semantics && cd ..
   - |
     if [[ "${NO_THREAD_LOCAL}" != "true" ]]; then
         mkdir concurrency-api && cd concurrency-api && cmake ../../concurrency-api && make && ./concurrency-api && cd ..
