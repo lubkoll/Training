@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <memory>
+#include <vector>
 
 #include "new_and_delete.hh"
 
