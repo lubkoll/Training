@@ -58,6 +58,7 @@ build_script:
   - mkdir begin_and_end && cd begin_and_end && cmake -GNinja ../../begin_and_end && ninja && begin_and_end && cd ..
   - mkdir unordered_map && cd unordered_map && cmake -GNinja ../../unordered_map && ninja && unordered_map && cd ..
   - mkdir unordered_set && cd unordered_set && cmake -GNinja ../../unordered_set && ninja && unordered_set && cd ..
+  - mkdir move_semantics && cd move_semantics && cmake -GNinja ../../move_semantics && ninja && move_semantics && cd ..
   - mkdir concurrency-api && cd concurrency-api && cmake -GNinja ../../concurrency-api && ninja && concurrency-api && cd ..
   - mkdir initializer_list && cd initializer_list && cmake -GNinja ../../initializer_list && ninja && initializer_list && cd ..
   - mkdir lambdas && cd lambdas && cmake -GNinja ../../lambdas && ninja && lambdas && cd ..
