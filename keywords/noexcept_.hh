@@ -22,9 +22,11 @@ namespace cpp11
         template <class... Args,
                   std::enable_if_t< std::is_constructible<T,Args...>::value >* = nullptr>
         explicit Container(Args&&... args) noexcept(std::is_constructible<T,Args...>::value)
-        {
-            return T(std::forward<Args>(args)...);
-        }
+            : t(std::forward<Args>(args)...)
+        {}
+
+    private:
+        T t;
     };
 }
 
