@@ -102,7 +102,7 @@ script:
   - mkdir unordered_set && cd unordered_set && cmake ../../unordered_set && make && ./unordered_set && cd ..
   - |
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
-        mkdir move_semantics && cd move_semantics && cmake ../../move_semantics && make && ./move-semantics && cd .
+        mkdir move_semantics && cd move_semantics && cmake ../../move_semantics && make && ./move-semantics && cd ..
     fi
   - |
     if [[ "${NO_THREAD_LOCAL}" != "true" ]]; then
