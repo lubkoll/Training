@@ -1,0 +1,2 @@
+# Run code in IDE or with the following command
+mkdir build && cd build && cmake .. && make && ./keyword_auto
