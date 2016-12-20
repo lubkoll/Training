@@ -38,7 +38,6 @@ void use_correct_types()
     }
 
 
-
     cout << "\n\tAnother subtle example.\n";
     cout << "\tIllustrates avoidance of redundant copies due to implicit conversion.\n\n";
     {
@@ -49,8 +48,6 @@ void use_correct_types()
         for( const pair<int,int>& entry : mymap ) {
             // do something
         }
-
-
 
         // ... but is wrong, leading to an unintended copy for each key-value-pair in mymap
         cout << "std::is_same<const pair<int,int>&, decltype( *cbegin(mymap) )>::value = "
@@ -67,9 +64,6 @@ void use_correct_types()
             // do something
         }
 
-        cout << "std::is_same<const pair<const int,int>&, decltype( *cbegin(mymap) )>::value = "
-             << std::is_same< const pair<const int,int>&,
-                              decltype( *cbegin(mymap) ) >::value << endl;
         for( const auto& entry : mymap ) {
             print( "Is 'const auto&' the correct type: ",
                     is_same<   decltype(entry),
