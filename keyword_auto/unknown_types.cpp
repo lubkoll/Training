@@ -1,23 +1,25 @@
 #include "unknown_types.hh"
 
-const auto max_spacing = 36u;
-const char print_indent[] = "\t\t";
-#include "../util/util.hh"
+#include <fung/fung.hh>
 
-using namespace std;
+#include <iostream>
 
-void work_with_unknown_types()
+static const constexpr int id = 0;
+
+auto generate_function()
 {
-    cout << "\nPart III - Unknown types\n";
-    cout << "\tThe type of lambda expressions is only known to the compiler.\n" <<
-            "\tStoring in an auto declared variable is more efficient and more convenient than in a function object:\n";
-    PRINT( auto a = [] (int x)
-    {
-        return 2*x;
-    };
-            );
-    print( "Type of a is 'int(*)(int)'",
-           is_same< decltype(a),
-           void(*)()        >::value );
-    cout << endl;
+    using namespace FunG;
+    auto x = variable<id>(1.0);
+    return x*x - 2*x + 1;
+}
+
+void work_with_unknown_and_difficult_types()
+{
+    auto f = generate_function();
+    f.update<id>(3.0);
+    std::cout << "f(3) = " << f() << std::endl;
+
+//    using open_sesame = decltype(f)::open_sesame;
+
+    auto g = [](int i) { return i*i; };
 }

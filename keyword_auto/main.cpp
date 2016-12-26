@@ -4,7 +4,6 @@
 #include "initialization.hh"
 #include "unknown_types.hh"
 #include "type_deduction.hh"
-#include "difference_between_auto_and_type_deduction.hh"
 #include "cpp14_only.hh"
 
 
@@ -22,6 +21,8 @@
  * 4. less code repetition
  *
  * 5. less typing
+ *
+ * 6. be careful with auto in combination with braced initialization
  */
 
 
@@ -29,17 +30,16 @@ int main(int, char*[])
 {
     std::cout << std::boolalpha << "\n";
 
+    
 
-    use_correct_types();
+//    use_correct_types();
 
 //    guarantees_initialization();
 
-//    work_with_unknown_types();
+//    work_with_unknown_and_difficult_types();
 
 //    type_deduction();
 
-//    difference_between_auto_and_type_deduction();
-
-//    cpp14_only();
+    cpp14_only();
 
 }

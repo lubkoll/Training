@@ -1,3 +1,3 @@
 #pragma once
 
-void type_deduction();
+void type_deduction(){}
