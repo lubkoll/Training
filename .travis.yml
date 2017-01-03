@@ -39,12 +39,12 @@ matrix:
       
     # Clang 3.6
     - os: linux
-      env: COMPILER=clang++-3.6 CCOMPILER=clang-3.6
+      env: COMPILER=clang++-3.6 CCOMPILER=clang-3.6 DISABLE_CONCURRENCY=true
       compiler: clang
       
     # Clang 3.7
     - os: linux
-      env: COMPILER=clang++-3.7 CCOMPILER=clang-3.7
+      env: COMPILER=clang++-3.7 CCOMPILER=clang-3.7 DISABLE_CONCURRENCY=true
       compiler: clang
       
     # Clang 3.8
@@ -55,12 +55,12 @@ matrix:
     # OSX
     # Xcode 6.4
     - os: osx
-      env: NO_THREAD_LOCAL=true
+      env: DISABLE_CONCURRENCY=true
       osx_image: xcode6.4
       
     # Xcode 7.3
     - os: osx
-      env: NO_THREAD_LOCAL=true
+      env: DISABLE_CONCURRENCY=true
       osx_image: xcode7.3
       
     # Xcode 8
@@ -105,7 +105,7 @@ script:
         mkdir move_semantics && cd move_semantics && cmake ../../move_semantics && make && ./move-semantics && cd ..
     fi
   - |
-    if [[ "${NO_THREAD_LOCAL}" != "true" ]]; then
+    if [[ "${DISABLE_CONCURRENCY}" != "true" ]]; then
         mkdir concurrency-api && cd concurrency-api && cmake ../../concurrency-api && make && ./concurrency-api && cd ..
     fi
   - mkdir initializer_list && cd initializer_list && cmake ../../initializer_list && make && ./initializer_list && cd ..
