@@ -5,9 +5,9 @@
 
 using Choice = std::function<bool(int)>;
 
-struct ChainedChoices
+struct Or
 {
-    ChainedChoices(Choice&& choice, Choice&& other_choice)
+    Or(Choice&& choice, Choice&& other_choice)
         : choice_( std::move(choice) ),
           other_choice_( std::move(other_choice) )
     {}
@@ -26,14 +26,14 @@ struct Binder
 {
     Choice bind(Choice&& choice) &&
     {
-        return ChainedChoices( std::move(static_cast<T&>(*this)), std::move(choice) );
+        return Or( std::move(static_cast<T&>(*this)), std::move(choice) );
     }
 };
 
 struct ChooseFromVector : Binder<ChooseFromVector>
 {
-  ChooseFromVector(const std::vector<int>& vec)
-      : vec_(vec)
+  ChooseFromVector(std::vector<int>&& vec)
+      : vec_(std::move(vec))
   {}
 
   bool operator()(int a) const
@@ -84,8 +84,8 @@ void overloading_member_functions_using_reference_qualifiers()
     std::vector<int> reference = get_vector(10);
     std::vector<int> vec = get_vector(20);
     print_vector(vec);
-    Choice choice = ChooseFromVector(reference).bind( ChooseOdd() );
-    vec.erase( remove_if( begin(vec), end(vec), choice ),
+    Choice remover = ChooseFromVector(std::move(reference)).bind( ChooseOdd() );
+    vec.erase( remove_if( begin(vec), end(vec), remover ),
                end(vec) );
     print_vector(vec);
 }

@@ -8,7 +8,7 @@
 template<class... Args>
 void print(const std::tuple<Args...>& t)
 {
-    std::cout << "(";
+    std::cout << "( ";
     TuplePrinter<decltype(t), sizeof...(Args)>::print(t);
     std::cout << ")\n\n";
 }

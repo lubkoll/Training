@@ -40,7 +40,7 @@ namespace cpp14
         auto get_one = []{ return 1; };
         std::cout << "get_one(): " << get_one() << std::endl;
 
-        auto add_one = [](int i) -> int
+        auto add_one = [](int i)
         {
             auto result = i + 1;
             return result;

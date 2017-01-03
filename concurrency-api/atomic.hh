@@ -21,7 +21,7 @@ namespace atomic
 
     void example()
     {
-        std::atomic_int counter{0};
+        std::atomic<int> counter{0};
         auto function = [&counter]
         {
             count_executions_in_all_threads(counter, write_hello);

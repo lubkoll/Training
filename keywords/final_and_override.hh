@@ -59,10 +59,13 @@ void final_and_override_example()
 {
     std::unique_ptr<Base> base = std::make_unique<Derived>();
     base->foo();
+    base->bar();
 
     base = std::make_unique<Derived2>();
     base->foo();
+    base->bar();
 
     base = std::make_unique<Derived3>();
     base->foo();
+    base->bar();
 }

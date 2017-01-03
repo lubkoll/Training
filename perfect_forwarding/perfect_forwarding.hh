@@ -14,8 +14,6 @@
       std::string("const&&\n") )
 
 
-
-
 void boo(int&)
 {
     std::cout << "Reference qualifier in boo: &\n";

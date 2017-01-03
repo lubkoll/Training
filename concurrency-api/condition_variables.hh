@@ -20,12 +20,12 @@ namespace condition_variables
         std::cout << "Waiting... \n";
         condition.wait( lock,                        // wait and block thread
                         []{ return flag.load(); } );   // use condition to wake-up or to avoid spurious wake-ups
-        std::cout << "...finished waiting. i == 1\n";
+        std::cout << "...finished waiting.\n";
     }
 
     void signals()
     {
-        std::this_thread::sleep_for(1ms); // 'std::literals::1s' available in C++14
+        std::this_thread::sleep_for(1ms); // '1s' available in C++14 in 'std::literals'
         std::cout << "Notifying falsely...\n";
         condition.notify_one(); // waiting thread is notified and continues waiting
 

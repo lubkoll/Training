@@ -12,10 +12,11 @@ namespace future_and_promise
 
     void signals(std::promise<void> promise)
     {
-        std::this_thread::sleep_for(1ms); // 'std::literals::1s' available in C++14
+        std::this_thread::sleep_for(1s); // 'std::literals::1s' available in C++14
 
         std::cout << "Notifying threads...\n";
         promise.set_value();
+        std::this_thread::sleep_for(100ms);
     }
 
 
@@ -33,16 +34,6 @@ namespace future_and_promise
         std::cout << "\n";
     }
 
-
-    void second_signals(std::promise<void> promise)
-    {
-        std::this_thread::sleep_for(1ms); // 'std::literals::1s' available in C++14
-
-        std::cout << "Notifying threads...\n";
-        promise.set_value();
-        std::this_thread::sleep_for(100ms);
-    }
-
     void shared_future_example()
     {
         // A pattern to start an arbitrary number of threads and suspend it until a one-shot signal is triggered
@@ -54,7 +45,7 @@ namespace future_and_promise
                                          write(); } ),
                     t3( [shared_future]{ shared_future.wait();
                                          write(); } ),
-                    t4(second_signals, std::move(promise));
+                    t4(signals, std::move(promise));
 
         t1.join();
         t2.join();
@@ -86,8 +77,8 @@ namespace future_and_promise
         simple_future_example();
 //        shared_future_example();
 //        packaged_task_example();
-        // Note:
-        // The last future referring to a shared state for a non-deferred task
-        // launched via std::async blocks until the task completes!
+        /* Note:
+         * The last future referring to a shared state for a non-deferred task
+         * launched via std::async blocks until the task completes! */
     }
 }

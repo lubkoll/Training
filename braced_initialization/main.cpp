@@ -3,10 +3,6 @@
 #include <vector>
 #include <type_traits>
 
-using std::cout;
-using std::endl;
-using std::is_same;
-
 struct Tmp
 {
 private:
@@ -24,12 +20,15 @@ int main()
     double x = 0, y = 1, z = 2;
 //    int a{ x + y + z };
 
-    // be careful with braced initialization in conjunction with auto:
+    // be careful with braced initialization in conjunction with auto,
+    // better DON'T use it until you are allowed to use C++17
     auto b{3};
     auto c = {1};
 
-    cout << is_same<decltype(b), int>::value << endl;
-    cout << is_same<decltype(c), std::initializer_list<int> >::value << endl;
+    std::cout << std::is_same<decltype(b), int>::value << std::endl;
+    std::cout << std::is_same<decltype(c), std::initializer_list<int> >::value << std::endl;
 
-    return 0;
+    // see
+    // - Scott Meyers, Effective Modern C++, Item 7
+    // - James Dennett, New Rules for auto deduction from braced-init-list, N3922
 }

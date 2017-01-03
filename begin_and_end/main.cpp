@@ -77,22 +77,21 @@ namespace project2
 int main()
 {
     auto printer = [](auto&& i) { std::cout << std::forward<decltype(i)>(i) << ' '; };
+
+/*
     // Use std::begin and std::end instead of the corresponding member functions.
-    {
-    // If you want to have the stl-implementations (which just call the member functions) uncomment the following two lines
-//     using std::begin;
-//     using std::end;
-}
+    // If you want to have the stl-implementations as fallback uncomment the following two lines
+     using std::begin;
+     using std::end;
+*/
 
     auto v = create_vector();
 
-    std::for_each( begin(v), end(v), printer);
+    std::for_each( begin(v), end(v), printer );
     std::cout << '\n';
 
     std::sort( begin(v), end(v) );
 
-    std::for_each( begin(v), end(v), printer);
+    std::for_each( begin(v), end(v), printer );
     std::cout << '\n';
-
-    // cbegin() and cend() can be treated analogously.
 }

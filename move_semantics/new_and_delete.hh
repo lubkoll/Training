@@ -1,6 +1,6 @@
 #pragma once
 
-auto end_block = "\n\n\n\n\n\n\n\n\n";
+auto end_block = "\n\n";
 
 inline int& heap_allocations ()
 {

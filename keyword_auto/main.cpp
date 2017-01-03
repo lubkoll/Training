@@ -3,7 +3,9 @@
 #include "correct_types.hh"
 #include "initialization.hh"
 #include "unknown_types.hh"
-#include "type_deduction.hh"
+#include "template_type_deduction.h"
+#include "auto_type_deduction.h"
+#include "auto_return_values.hh"
 #include "cpp14_only.hh"
 
 
@@ -34,12 +36,15 @@ int main(int, char*[])
 
 //    use_correct_types();
 
-//    guarantees_initialization();
+    guarantees_initialization();
 
 //    work_with_unknown_and_difficult_types();
 
-//    type_deduction();
+//    template_type_deduction::example();
 
-    cpp14_only();
+//    auto_type_deduction::example();
 
+//    auto_return_values::example();
+
+//    cpp14_only();
 }
