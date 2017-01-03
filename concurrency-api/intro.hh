@@ -4,6 +4,7 @@
 #include <chrono>
 #include <future>
 #include <iostream>
+#include <numeric>
 #include <utility>
 #include <string>
 #include <vector>
@@ -25,8 +26,8 @@ namespace intro
                                       [](char c) { return c=='a'; });
         };
 
-        return std::accumulate(start_iterator, end_iterator, 0,
-                               count_a_in_string);
+        return accumulate(start_iterator, end_iterator, 0,
+                          count_a_in_string);
     }
 
     double factorial(double n)
@@ -121,8 +122,8 @@ namespace intro
         std::vector< std::future<double> > dfutures;
         for(int i=0; i<n_threads; ++i)
             dfutures.emplace_back( std::async(over, 1000, 500) );
-        n = std::accumulate(begin(dfutures), end(dfutures), 0.0,
-                            [](Size init, std::future<double>& future)
+        n = accumulate(begin(dfutures), end(dfutures), 0.0,
+                       [](Size init, std::future<double>& future)
         {
             return init + future.get();
         });
