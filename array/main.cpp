@@ -14,9 +14,10 @@ int main()
     // Initialize array using std::initializer_list<int>
     std::array<int, dim> v = { 1, 2, 3 };
 
-    // Replace entries x with x^2 with a generalized lambda expression
-    std::for_each( begin(v), end(v),
-                   [] (auto& x) { x *= x; } );
+    // Replace entries x with x^2 using a generalized lambda expression
+    std::transform(begin(v), end(v),
+                   begin(v),
+                   [](auto x) { return x *= x; } );
 
     // Print with range-based for-loop
     for(auto entry : v)
@@ -31,7 +32,7 @@ int main()
     // Access via square-bracket-operator
     std::cout << "v[2] = " << v[2] << std::endl;
 
-    // Access via, possibly throwing, at()
+    // Access via 'at(size_type i)', may throw std::out_of_range
     int v3 = 0;
     try {
         int tmp = v.at(3);
@@ -62,6 +63,6 @@ int main()
     swap(v,w);
 
     std::cout << "v < w: " << (v < w) << std::endl;
-    // and all the other comparison operators...
+    // and all the other comparison operators (using lexicographical comparison)...
 }
 
