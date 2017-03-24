@@ -5,11 +5,11 @@
 class Identifier
 {
 public:
-    Identifier(int val) noexcept
+    explicit Identifier(int val) noexcept
         : value_(val)
     {}
 
-    operator int() const noexcept
+    explicit operator int() const noexcept
     {
         return value_;
     }
@@ -28,11 +28,11 @@ bool operator==(Identifier a, Identifier b) noexcept
 class Real
 {
 public:
-    Real(double val = 0) noexcept
+    explicit Real(double val = 0) noexcept
         : value_(val)
     {}
 
-    operator double() const noexcept
+    explicit operator double() const noexcept
     {
         return value_;
     }
@@ -55,8 +55,8 @@ int main()
     Identifier a(1);
     Real b(1);
 
-    std::cout << (a == 2) << std::endl;
-//    cout << ( static_cast<int>(a) == static_cast<double>(b) ) << endl;
+//    std::cout << (a == 2) << std::endl;
+    std::cout << ( static_cast<int>(a) == static_cast<double>(b) ) << std::endl;
 
     // Special case:
     // operator bool

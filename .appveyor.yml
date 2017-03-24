@@ -65,4 +65,5 @@ build_script:
   - mkdir variadic_template && cd variadic_template && cmake -GNinja ../../variadic_template && ninja && variadic_template && cd ..
   - mkdir alias_and_variable_template && cd alias_and_variable_template && cmake -GNinja ../../alias_and_variable_template && ninja && alias-and-variable-template && cd ..
   - mkdir keywords && cd keywords && cmake -GNinja ../../keywords && ninja && keywords && cd ..
+  - mkdir explicit_conversion && cd explicit_conversion && cmake -GNinja ../../explicit_conversion && ninja && explicit_conversion && cd ..
 
