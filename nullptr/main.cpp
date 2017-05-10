@@ -3,7 +3,7 @@
 using std::cout;
 using std::endl;
 
-struct Data{};
+struct Data {};
 
 void process(Data* d)
 {
@@ -13,9 +13,9 @@ void process(Data* d)
         cout << "processing nothing" << endl;
 }
 
-void process(char)
+void process(int)
 {
-    cout << "processing char" << endl;
+    cout << "processing int" << endl;
 }
 
 
@@ -24,8 +24,8 @@ int main()
     Data* d = new Data;
 
     process(d);
-    process(0);
-//    process(NULL)
+//    process(0);
+//    process(NULL);
 
     delete d;
 }
