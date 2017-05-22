@@ -64,7 +64,6 @@ namespace cpp14
     constexpr T pi = T(3.1415926535897932385);
 }
 
-
 int main()
 {
     std::cout << std::setprecision(std::numeric_limits<double>::digits10 + 1);

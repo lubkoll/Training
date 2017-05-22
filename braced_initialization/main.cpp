@@ -7,6 +7,7 @@ struct Tmp
 {
 private:
     int x{0};
+    // std::atomic has no copy constructor
     std::atomic<int> y{1};
 };
 
@@ -21,10 +22,12 @@ int main()
 //    int a{ x + y + z };
 
     // be careful with braced initialization in conjunction with auto,
+    // this behaves differently with different compilers,
     // better DON'T use it until you are allowed to use C++17
     auto b{3};
     auto c = {1};
 
+    std::cout << std::boolalpha;
     std::cout << std::is_same<decltype(b), int>::value << std::endl;
     std::cout << std::is_same<decltype(c), std::initializer_list<int> >::value << std::endl;
 

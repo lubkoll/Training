@@ -2,11 +2,13 @@
 #include <iostream>
 
 #define PRINT(T) \
-    std::cout << "size of "#T": " << sizeof(T) << std::endl;
+    std::cout << "size of "#T": " << sizeof(T) << std::endl
 
 
 int main()
 {
+    PRINT(int);
+    PRINT(short);
     PRINT(std::int8_t);
     PRINT(std::int16_t);
     PRINT(std::int32_t);

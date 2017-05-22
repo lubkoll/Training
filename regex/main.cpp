@@ -2,8 +2,6 @@
 #include <regex>
 #include <string>
 
-const int N = 6;
-
 int main()
 {
     std::string s = "Some people, when confronted with a problem, think "
@@ -32,6 +30,11 @@ int main()
                            std::cout << " " << word.str() << std::endl;
                    } );
     std::cout << std::endl;
+    std::cout << count_if( words_begin, words_end,
+                           [N]
+                           (const auto& word)
+                           { return word.str().size() > N; })
+              << "\n";
 
     // Surround words with at least seven characters with square brackets.
     std::regex long_word_regex("(\\w{7,})");

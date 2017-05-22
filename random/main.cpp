@@ -7,7 +7,7 @@
 
 // Generate uniformly distributed integer numbers in [low,high].
 // Each run of this program will generate the same sequence.
-int rand_int(int low, int high)
+int random_int(int low, int high)
 {
     // random number generation engine (seeded with default value)
     static std::minstd_rand engine{};
@@ -19,7 +19,7 @@ int rand_int(int low, int high)
 
 // Generate uniformly distributed integer numbers in [low,high].
 // Each run of this program will (probably) generate a different sequence.
-int rand_int_seeded(int low, int high)
+int seeded_random_int(int low, int high)
 {
     using clock = std::chrono::system_clock;
 
@@ -38,19 +38,21 @@ int main()
 {
     std::cout << "uniform_int_distribution" << std::endl;
     for(auto i=0; i<10; ++i)
-        std::cout << rand_int(42,73) << std::endl;
+        std::cout << random_int(42,73) << std::endl;
     std::cout << std::endl;
 
     std::cout << "uniform_int_distribution (seeded with current time)" << std::endl;
     for(auto i=0; i<10; ++i)
-        std::cout << rand_int_seeded(42,73) << std::endl;
+        std::cout << seeded_random_int(42,73) << std::endl;
     std::cout << std::endl;
 
     std::cout << "normal_distribution (example of Stroustroup)" << std::endl;
     // random number generation engine (seeded with default value)
     std::default_random_engine re;   // the default engine
     // random number distribution
-    std::normal_distribution<double> nd(31 /* mean */,8 /* sigma */);
+    std::normal_distribution<double> nd(31, // mean
+                                        8 // sigma
+                                        );
 
     auto norm = std::bind(nd, re);
 

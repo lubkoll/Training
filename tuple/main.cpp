@@ -33,8 +33,8 @@ int main()
     char c = 'd';
 
     // Create tuple of lvalue-references with std::tie
-    auto cmp = std::tie(a,b,c) < tpl;
-    std::cout << cmp << std::endl;
+    auto is_smaller = std::tie(a,b,c) < tpl;
+    std::cout << is_smaller << std::endl;
 
 
     std::set<std::string> set_of_str;
