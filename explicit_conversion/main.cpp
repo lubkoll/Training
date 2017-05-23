@@ -9,7 +9,7 @@ public:
         : value_(val)
     {}
 
-    explicit operator bool() const noexcept
+    explicit operator int() const noexcept
     {
         return value_;
     }
