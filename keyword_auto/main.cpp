@@ -34,7 +34,7 @@ int main(int, char*[])
 
     
 
-//    use_correct_types();
+    use_correct_types();
 
     guarantees_initialization();
 

@@ -1,26 +1,32 @@
 #pragma once
 
+#include <algorithm>
 #include <functional>
+#include <iostream>
+#include <vector>
 
 namespace mem_fn
 {
-    struct T
+    struct Service
     {
-        int get() const
+        void print() const
         {
-            return value;
+            std::cout << this << std::endl;
         }
-
-        int value = 0;
     };
+
+    template<class Container>
+    void print_container(const Container& container)
+    {
+        for_each(begin(container),
+                 end(container),
+                 std::mem_fn(&Service::print));
+    }
 
     void example()
     {
-        T s{1}, t{2};
-
-        auto getter = std::mem_fn(&T::get);
-
-        std::cout << getter(s) << '\n';
-        std::cout << getter(t) << "\n\n";
+        std::vector<Service> services(10);
+        print_container(services);
     }
 }
+

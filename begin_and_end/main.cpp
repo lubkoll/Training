@@ -3,7 +3,6 @@
 #include <utility>
 #include <vector>
 
-
 std::vector<int> create_vector()
 {
     return { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
@@ -74,19 +73,27 @@ namespace project2
 }
 
 
+
+// Requirement 1: move- and/or copyable (for storage in containers)
+// Requirement 2: either member functions begin() and end() or implementations of the free functions
+//                begin(...) and end(...) (in its namespace)
+// Requirement 3: provides operator<< (in its namespace)
 int main()
 {
-    auto printer = [](auto&& i) { std::cout << std::forward<decltype(i)>(i) << ' '; };
+    using namespace std;
 
-/*
+    auto printer = [](const auto& i) { std::cout << i << ' '; };
+
     // Use std::begin and std::end instead of the corresponding member functions.
     // If you want to have the stl-implementations as fallback uncomment the following two lines
-     using std::begin;
-     using std::end;
-*/
-
+    using std::begin;
+    using std::end;
     auto v = create_vector();
+//    int v[10] = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+//    auto v = project1::create_vector();
+//    auto v = project2::create_vector();
 
+    // independent
     std::for_each( begin(v), end(v), printer );
     std::cout << '\n';
 

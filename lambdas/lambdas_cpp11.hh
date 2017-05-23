@@ -18,7 +18,7 @@ auto get_add_to_offset_worse()
 {
     int offset = 3;
     // Captures all variables by reference
-    // -> in general we don't even know which references might dangle
+    // -> in more complex situations we don't even know which references might dangle
     return [&] (int i) { return offset + i; };
 }
 
@@ -46,14 +46,13 @@ auto get_add_to_offset_bad3()
 }
 
 
-class AddToOffset
+struct AddToOffset
 {
-public:
     auto get() const
     {
         // Here offset can not be captured, since it is a member variable.
         // Instead 'this' gets captured by value
-        // -> this may dangle
+        // -> 'this' may dangle
         return [=] (int i) { return offset + i; };
     }
 
@@ -77,8 +76,8 @@ namespace cpp11
         std::vector<int> v = { 1, 2, 3, 4, 5 };
 
         std::cout << "C++98/03:" << std::endl;
-        auto odd_elements = std::count_if( begin(v), end(v),
-                                           IsOdd() );
+        auto odd_elements = count_if( begin(v), end(v),
+                                      IsOdd() );
         std::cout << "odd_elements: " << odd_elements << "\n\n";
 
         std::cout << "C++11:" << std::endl;

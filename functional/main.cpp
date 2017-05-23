@@ -6,6 +6,6 @@
 int main()
 {
     function::example();
-//    mem_fn::example();
-//    bind::example();
+    mem_fn::example();
+    bind::example();
 }

@@ -4,17 +4,16 @@ using std::cout;
 using std::endl;
 
 
-enum ErrorCode { NO_ERROR=0, FATAL_ERROR };
+enum ErrorCode { NO_ERROR=1, FATAL_ERROR };
 
-enum class SaferErrorCode { NO_ERROR=0, FATAL_ERROR };
-
-
-
-bool do_something()
+enum class SaferErrorCode
 {
-    return SaferErrorCode::NO_ERROR;
-}
-
+    UNKNOWN=0,  // to avoid problems with default-constructed error-codes,
+                // i.e. when one forgets to mock functions in the google test framework,
+                // better avoid '0' as error code
+    NONE,
+    FATAL
+};
 
 int main()
 {
@@ -22,12 +21,7 @@ int main()
     int value = error;
     cout << error << endl;
 
-    auto err = do_something();
-    if( err != SaferErrorCode::NO_ERROR ) {
-        cout << "error\n";
-    }
-
-    auto safe_error = SaferErrorCode::NO_ERROR;
+    auto safe_error = SaferErrorCode::NONE;
     auto safe_error2 = SaferErrorCode(2);
     cout << static_cast<int>(safe_error) << endl;
     cout << static_cast<int>(safe_error2) << endl;

@@ -44,6 +44,19 @@ namespace cpp11
     };
 }
 
+
+template <class T>
+void foo(T t)
+{
+    std::cout << "foo" << std::endl;
+}
+
+void foo(int) = delete;
+
+
 void default_and_delete_example()
 {
+    foo('c');
+    // The following line does not compile, since foo(int) was deleted.
+    // foo(0);
 }

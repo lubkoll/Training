@@ -14,14 +14,11 @@ void use_correct_types()
     int size = vec.size();
     unsigned usize = vec.size();
 
-    {
-        cout << "std::is_same<int, decltype(vec.size())>::value = "
-             << std::is_same<int, decltype(vec.size())>::value << endl;
-    }
-    {
-        cout << "std::is_same<unsigned, decltype(vec.size())>::value = "
-             << std::is_same<unsigned, decltype(vec.size())>::value << endl;
-    }
+    cout << "std::is_same<int, decltype(vec.size())>::value = "
+         << std::is_same<int, decltype(vec.size())>::value << endl;
+
+    cout << "std::is_same<unsigned, decltype(vec.size())>::value = "
+         << std::is_same<unsigned, decltype(vec.size())>::value << endl;
 
     // Correct before auto:
     {
