@@ -70,7 +70,7 @@ int main()
     // -  static_assert
     // -  noexcept
     // i.e., the following line still works
-    if(a) {
+    if(data && data2) {
         // do something
     }
 
